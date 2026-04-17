@@ -500,99 +500,93 @@
 
   
   <script>
-    function toggleChat() {
-      const box = document.getElementById('chatbox');
-      box.classList.toggle('open');
-    }
-
-    const responses = [
-      {
-        keywords: ['hello', 'hi', 'hey', 'kumusta', 'good', 'morn', 'afternoon', 'evening'],
-        reply: "Hi! I'm Joffrey's virtual assistant. Ask me about his skills, projects, or how to hire him! 👋"
-      },
-      {
-        keywords: ['skill', 'skills', 'tech', 'technology', 'stack', 'tools', 'use', 'know'],
-        reply: "Joffrey specializes in: ⚙️ Docker Production Deployment, 🔄 n8n Workflow Automation, 🖥️ Ubuntu Server Configuration, 📝 Windows PowerShell Scripting, and 🔒 Secure Device Provisioning."
-      },
-      {
-        keywords: ['docker', 'container', 'deployment', 'deploy'],
-        reply: "Joffrey is experienced in Docker production deployments — setting up containers, docker-compose, networking, volumes, and secure server configurations. 🐳"
-      },
-      {
-        keywords: ['n8n', 'workflow', 'automation', 'automate', 'bot'],
-        reply: "Joffrey builds powerful automation workflows using n8n — from Gmail auto-responses to complex multi-step business automations. 🔄"
-      },
-      {
-        keywords: ['project', 'projects', 'built', 'work', 'portfolio', 'example'],
-        reply: "Here are Joffrey's featured projects:
-📧 Automated Gmail Response System (n8n)
-🔒 Secure Remote Device Setup SOP
-📝 Windows Update Control Script"
-      },
-      {
-        keywords: ['hire', 'price', 'cost', 'rate', 'fee', 'quote', 'available', 'freelance', 'service'],
-        reply: "Joffrey is open for freelance automation projects! 🚀 Send him an email at yapjoffrey@gmail.com or click the 'Hire Me' button at the top to get started."
-      },
-      {
-        keywords: ['contact', 'reach', 'email', 'message', 'connect', 'linkedin', 'facebook'],
-        reply: "You can reach Joffrey through:
-📧 yapjoffrey@gmail.com
-💼 linkedin.com/in/joffrey-yap-0a78a62b1/
-📘 facebook.com/joffrey.yap"
-      },
-      {
-        keywords: ['ubuntu', 'linux', 'server', 'vps', 'cloud'],
-        reply: "Joffrey configures Ubuntu servers for production use — setting up firewalls, SSH hardening, reverse proxies (Nginx), SSL certificates, and more. 🖥️"
-      },
-      {
-        keywords: ['powershell', 'windows', 'script', 'scripting', 'microsoft'],
-        reply: "Joffrey writes PowerShell scripts for Windows automation — including update management, user provisioning, and system monitoring. 💻"
-      },
-      {
-        keywords: ['who', 'about', 'joffrey', 'yourself', 'background', 'experience'],
-        reply: "Joffrey Yap is an Automation Consultant & Workflow Engineer based in the Philippines. He helps businesses automate workflows and optimize IT systems using Docker, n8n, and more. 🌟"
-      },
-      {
-        keywords: ['thank', 'thanks', 'salamat', 'ty'],
-        reply: "You're welcome! Feel free to ask anything else or reach out to Joffrey directly. 😊"
-      },
-    ];
-
-    function getBotReply(message) {
-      const lower = message.toLowerCase();
-      for (const item of responses) {
-        if (item.keywords.some(k => lower.includes(k))) {
-          return item.reply;
+        function toggleChat() {
+          var box = document.getElementById('chatbox');
+          box.classList.toggle('open');
         }
-      }
-      return "I'm not sure about that, but you can email Joffrey directly at yapjoffrey@gmail.com for more info! 📧";
-    }
 
-    function sendMessage() {
-      const input = document.getElementById('userMessage');
-      const message = input.value.trim();
-      if (!message) return;
+        var responses = [
+          {
+            keywords: ['hello', 'hi', 'hey', 'kumusta', 'good morning', 'good afternoon'],
+            reply: "Hi! I am Joffrey's virtual assistant. Ask me about his skills, projects, or how to hire him! "
+          },
+          {
+            keywords: ['skill', 'skills', 'tech', 'technology', 'stack', 'tools', 'use', 'know'],
+            reply: "Joffrey specializes in: Docker Production Deployment, n8n Workflow Automation, Ubuntu Server Configuration, Windows PowerShell Scripting, and Secure Device Provisioning."
+          },
+          {
+            keywords: ['docker', 'container', 'deployment', 'deploy'],
+            reply: "Joffrey is experienced in Docker production deployments — setting up containers, docker-compose, networking, volumes, and secure server configurations."
+          },
+          {
+            keywords: ['n8n', 'workflow', 'automation', 'automate', 'bot'],
+            reply: "Joffrey builds powerful automation workflows using n8n — from Gmail auto-responses to complex multi-step business automations."
+          },
+          {
+            keywords: ['project', 'projects', 'built', 'work', 'portfolio', 'example'],
+            reply: "Joffrey's featured projects: 1) Automated Gmail Response System (n8n), 2) Secure Remote Device Setup SOP, 3) Windows Update Control Script."
+          },
+          {
+            keywords: ['hire', 'price', 'cost', 'rate', 'fee', 'quote', 'available', 'freelance', 'service'],
+            reply: "Joffrey is open for freelance automation projects! Send him an email at yapjoffrey@gmail.com or click the Hire Me button at the top to get started."
+          },
+          {
+            keywords: ['contact', 'reach', 'email', 'message', 'connect', 'linkedin', 'facebook'],
+            reply: "You can reach Joffrey through: Email: yapjoffrey@gmail.com | LinkedIn: linkedin.com/in/joffrey-yap-0a78a62b1/ | Facebook: facebook.com/joffrey.yap"
+          },
+          {
+            keywords: ['ubuntu', 'linux', 'server', 'vps', 'cloud'],
+            reply: "Joffrey configures Ubuntu servers for production use — firewalls, SSH hardening, reverse proxies (Nginx), SSL certificates, and more."
+          },
+          {
+            keywords: ['powershell', 'windows', 'script', 'scripting', 'microsoft'],
+            reply: "Joffrey writes PowerShell scripts for Windows automation — update management, user provisioning, and system monitoring."
+          },
+          {
+            keywords: ['who', 'about', 'joffrey', 'yourself', 'background', 'experience'],
+            reply: "Joffrey Yap is an Automation Consultant and Workflow Engineer based in the Philippines. He helps businesses automate workflows and optimize IT systems using Docker, n8n, and more."
+          },
+          {
+            keywords: ['thank', 'thanks', 'salamat', 'ty'],
+            reply: "You are welcome! Feel free to ask anything else or reach out to Joffrey directly."
+          }
+        ];
 
-      const messagesDiv = document.getElementById('messages');
+        function getBotReply(message) {
+          var lower = message.toLowerCase();
+          for (var i = 0; i < responses.length; i++) {
+            var item = responses[i];
+            for (var j = 0; j < item.keywords.length; j++) {
+              if (lower.indexOf(item.keywords[j]) !== -1) {
+                return item.reply;
+              }
+            }
+          }
+          return "I am not sure about that, but you can email Joffrey directly at yapjoffrey@gmail.com for more info!";
+        }
 
-      messagesDiv.innerHTML += '<div class="user-msg"><span>' + message + '</span></div>';
-      input.value = '';
-      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        function sendMessage() {
+          var input = document.getElementById('userMessage');
+          var message = input.value.trim();
+          if (!message) return;
 
-      messagesDiv.innerHTML += '<div class="bot-msg" id="typing"><span>Typing...</span></div>';
-      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+          var messagesDiv = document.getElementById('messages');
+          messagesDiv.innerHTML += '<div class="user-msg"><span>' + message + '</span></div>';
+          input.value = '';
+          messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
-      setTimeout(() => {
-        const typing = document.getElementById('typing');
-        if (typing) typing.remove();
-        const reply = getBotReply(message);
-        const formatted = reply.replace(/
-/g, '<br>');
-        messagesDiv.innerHTML += '<div class="bot-msg"><span>' + formatted + '</span></div>';
-        messagesDiv.scrollTop = messagesDiv.scrollHeight;
-      }, 700);
-    }
-  </script>
+          messagesDiv.innerHTML += '<div class="bot-msg" id="typing"><span>Typing...</span></div>';
+          messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+          setTimeout(function() {
+            var typing = document.getElementById('typing');
+            if (typing) typing.remove();
+            var reply = getBotReply(message);
+            messagesDiv.innerHTML += '<div class="bot-msg"><span>' + reply + '</span></div>';
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+          }, 700);
+        }
+      </script>
 
 </body>
 </html>
